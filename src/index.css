@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Galaxy Design System */
+@layer base {
+  :root {
+    /* Galaxy Theme Colors - Purple/Blue */
+    --background: 220 27% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 217 11% 65%;
+
+    --accent: 263 70% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom Galaxy Colors */
+    --galaxy-primary: 263 70% 50%;
+    --galaxy-secondary: 240 100% 70%;
+    --galaxy-tertiary: 280 100% 70%;
+    --galaxy-accent: 200 100% 70%;
+    --galaxy-purple: 270 80% 60%;
+    --galaxy-blue: 220 90% 60%;
+    --galaxy-pink: 320 80% 70%;
+    --galaxy-cyan: 180 100% 70%;
+
+    /* Gradients */
+    --gradient-galaxy: linear-gradient(135deg, hsl(var(--galaxy-primary)), hsl(var(--galaxy-secondary)), hsl(var(--galaxy-tertiary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--galaxy-purple)), hsl(var(--galaxy-blue)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(215 28% 25%));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--galaxy-primary) / 0.3), transparent 70%);
+
+    /* Shadows */
+    --shadow-galaxy: 0 25px 50px -12px hsl(var(--galaxy-primary) / 0.25);
+    --shadow-glow: 0 0 50px hsl(var(--galaxy-primary) / 0.5);
+    --shadow-card: 0 10px 30px -10px hsl(var(--background) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Typography */
+    --font-futuristic: 'Orbitron', monospace;
+    --font-body: 'Inter', sans-serif;
+
+    /* Sidebar theme adjusted for galaxy */
+    --sidebar-background: 220 27% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 263 70% 50%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 28% 17%;
+    --sidebar-ring: 263 70% 50%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 84% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 263 70% 50%;
+
+    /* Light mode galaxy colors (more subtle) */
+    --galaxy-primary: 263 70% 50%;
+    --galaxy-secondary: 240 100% 70%;
+    --galaxy-tertiary: 280 100% 70%;
+    --galaxy-accent: 200 100% 70%;
+    --galaxy-purple: 270 80% 60%;
+    --galaxy-blue: 220 90% 60%;
+    --galaxy-pink: 320 80% 70%;
+    --galaxy-cyan: 180 100% 70%;
+
+    --gradient-galaxy: linear-gradient(135deg, hsl(var(--galaxy-primary) / 0.1), hsl(var(--galaxy-secondary) / 0.1), hsl(var(--galaxy-tertiary) / 0.1));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--galaxy-purple) / 0.1), hsl(var(--galaxy-blue) / 0.1));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--card)));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--galaxy-primary) / 0.1), transparent 70%);
+
+    --shadow-galaxy: 0 25px 50px -12px hsl(var(--galaxy-primary) / 0.15);
+    --shadow-glow: 0 0 30px hsl(var(--galaxy-primary) / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 263 70% 50%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 263 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-futuristic {
+    font-family: var(--font-futuristic);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .gradient-galaxy {
+    background: var(--gradient-galaxy);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-glow {
+    background: var(--gradient-glow);
+  }
+
+  .shadow-galaxy {
+    box-shadow: var(--shadow-galaxy);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .text-galaxy-primary {
+    color: hsl(var(--galaxy-primary));
+  }
+
+  .text-galaxy-secondary {
+    color: hsl(var(--galaxy-secondary));
+  }
+
+  .text-galaxy-purple {
+    color: hsl(var(--galaxy-purple));
+  }
+
+  .text-galaxy-blue {
+    color: hsl(var(--galaxy-blue));
+  }
+
+  .text-galaxy-pink {
+    color: hsl(var(--galaxy-pink));
+  }
+
+  .text-galaxy-cyan {
+    color: hsl(var(--galaxy-cyan));
+  }
+
+  .border-galaxy-primary {
+    border-color: hsl(var(--galaxy-primary));
+  }
+
+  .bg-galaxy-primary {
+    background-color: hsl(var(--galaxy-primary));
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px currentColor;
+  }
+
+  .particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--galaxy-primary) / 0.5);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--galaxy-primary) / 0.8), 0 0 60px hsl(var(--galaxy-primary) / 0.3);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  /* Particle effects */
+  @keyframes particle-float {
+    0% { transform: translateY(0px) translateX(0px); opacity: 1; }
+    100% { transform: translateY(-100vh) translateX(10px); opacity: 0; }
+  }
+
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particle-float linear infinite;
+  }
+}
